@@ -1,0 +1,45 @@
+:root{
+   
+    --success-color: #76F7E7;
+    --danger-color: #F36B83;
+    --accent-color: #850BF4;
+    
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    
+    --white-transparent-color: rgba(255, 255, 255, 0.3);
+    
+    
+    --border-radius: 50px;
+    --border-width: 2px;
+    --border-width-md: 4px;
+    
+    
+    --main-font: "Helvetica", sans-serif;
+    --secondary-font: "Segoe UI", sans-serif;
+}
+
+
+.bg-success-unity {
+    
+    background-color: var(--success-color);
+}
+
+.bg-danger-unity {
+    
+    background-color: var(--danger-color);
+}
+
+.bg-accent-unity {
+    background-color: var(--accent-color);
+}
+
+
+.border-accent-unity {
+    
+    border-color: var(--accent-color);
+    
+    border-radius: var(--border-radius);
+    
+    border-width: var(--border-width);
+}

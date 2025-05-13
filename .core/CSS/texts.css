@@ -1,0 +1,73 @@
+
+.h-1-white, .h-3-white, .h-5-white,
+.h-3-black, .h-5-black {
+
+    font-family: var(--main-font);
+    
+    margin: 3px;
+    
+    padding: 3px;
+}
+
+
+.h-1-white, .h-3-white, .h-5-white {
+    
+    color: var(--white-color);
+}
+
+.h-3-black, .h-5-black {
+    
+    color: var(--black-color);
+}
+
+
+
+.h-1-white{
+    
+    font-weight: bold;
+    
+    font-size: clamp(3em, 72px, 4em);
+}
+
+.h-3-white, .h-3-black {
+    
+    font-weight: lighter;
+    
+    font-size: clamp(2em, 56px, 2.5em);
+}
+
+.h-5-white, .h-5-black {
+    
+    font-weight: normal;
+    
+    font-size: clamp(1em, 20px, 1.5em);   
+}
+
+
+.text-light-white, .text-light-black {
+    
+    
+    font-weight: lighter;
+    
+    font-family: var(--secondary-font);
+    
+    font-size: clamp(0.8em, 20px, 1.4em);
+}
+
+
+.text-light-white {
+    
+    color: var(--white-color);
+}
+
+.text-light-black {
+    color: var(--black-color);
+}
+
+
+.h-accordeon {
+    font-family: var(--main-font);
+
+    font-weight: lighter;
+    font-size: clamp(0.8em, 10px, 1.2em);   
+}
