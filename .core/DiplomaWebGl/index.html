@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | PlayfulLearn</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">PlayfulLearn</div>
+      </div>
+    </div>
+    <script>
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/DiplomaWebGl.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/DiplomaWebGl.data",
+        frameworkUrl: buildUrl + "/DiplomaWebGl.framework.js",
+        codeUrl: buildUrl + "/DiplomaWebGl.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "BadBoys",
+        productName: "PlayfulLearn",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
+
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      loadingBar.style.display = "block";
+
+      
+      function getUserJson()
+      {
+          return `{"Email": "test@mail.ru", "UserName": "Test User", "SelectedCharacter": "PinkMan", "CompletedLessons": []}`;
+      }
+      
+      
+      function getLessonsJson()
+      {
+          
+          const lesson1 = `{"NameOfLesson": "Axis X", "Theory": [{"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "Russian"}, {"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "English"}]}`;
+          
+          const lesson2 = `{"NameOfLesson": "Axis Y", "Theory": [{"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "Russian"}]}`;
+          
+          const lesson3 = `{"NameOfLesson": "Get Button Down", "Theory": [{"Language": "Russian"}]}`;
+          
+          const lesson4 = `{"NameOfLesson": "Fire", "Theory": [{"Language": "Russian"}]}`;
+          
+          
+          const lessons = [lesson1, lesson2, lesson3, lesson4];
+          
+          
+          let output = `[` + lessons[0];
+          
+          for(let i = 1; i< lessons.length; i++)
+          {
+              
+              output += ', ' + lessons[i];
+          }
+          
+          output += `]`;
+          
+          return output;
+      }
+      
+      
+      function getLearningModulesJson()
+      {
+          
+          const module1 = `{"NameOfProgram": "Input", "Lessons": ["Get Button Down", "Fire"]}`;
+          
+          const module2 = `{"NameOfProgram": "Physics", "Lessons": ["Axis X", "Axis Y"]}`;
+          
+          
+          const modules = [module1, module2];
+          
+          
+          let output = `[` + modules[0];
+          
+          for(let i = 1; i< modules.length; i++)
+          {
+              
+              output += ', ' + modules[i];
+          }
+          
+          output += `]`;
+          
+          return output;          
+      }
+      
+      
+      function getInitJson()
+      {
+          
+        const user = `"User":` + getUserJson();
+        
+        const lessons = `"Lessons":` + getLessonsJson();
+        
+        const modules = `"LearningPrograms":` + getLearningModulesJson();
+        
+        const startingModule = `"StartingModule": "Physics"`;
+        
+        const initData = `{` + user + `, ` + lessons + `, ` + modules + `, ` + startingModule + '}';
+          
+        return initData;
+      }
+      
+      
+      
+
+      var myGameInstance = null;
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                
+                myGameInstance = unityInstance;
+               
+               
+                myGameInstance.SendMessage('InitScene', 'Init');
+                
+                console.log(Object.keys(getInitJson()).length);
+                myGameInstance.SendMessage('InitScene', 'LoadInitData', getInitJson());
+                
+                
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
+              }).catch((message) => {
+                alert(message);
+              });
+            };
+
+
+      document.body.appendChild(script);
+      
+      
+    </script>
+  </body>
+</html>

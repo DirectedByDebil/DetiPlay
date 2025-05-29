@@ -25,42 +25,42 @@
             
             
             <div class="flex-grow-1">  </div>            
-            
-            
+
+
             <div class="flex-grow-1 d-flex
                  justify-content-center">
-                
+
                 <a href="#about_app"
                    class ="btn btn-header btn-lg
                    flex-fill" role="button">
-                    
+
                     О приложении
                 </a>
-            
-          
+
+
                 <a href="#about_us"
                    class="btn btn-header btn-lg
                    flex-fill" role="button">
-                    
+
                     О нас
                 </a>
-            
-            
+
+
                 <a href="#modules"
                    class="btn btn-header btn-lg
                    flex-fill" role="button">
-                    
+
                     Учебные модули   
                 </a>
-                
+
             </div>
-            
-            
+
+
             <div class="d-flex pe-3
                  flex-grow-1
                  justify-content-end">
-                
-                <a href="SignIn.html"
+
+                <a href="LogIn.html"
                    class="btn btn-outline btn-lg"
                    role="button">Вход</a>
             </div>
@@ -113,11 +113,12 @@
         </div>
             
         
-        <div class="container-md
-             d-flex flex-column
-             align-items-center">
-            
 
+        <div class="container-fluid
+         d-flex flex-column
+         align-items-center">
+        
+            
             <!--About App-->
             <div id="about_app"
                  class="container-sm
@@ -227,13 +228,90 @@
  
             </div>
 
-            
-            
+
             <!--About Us-->
             <div id="about_us"
-                 class="container-md 
-                 h-5-white bg-accent-unity
-                 p-3 m-3">О нас Текст </div>
+                 class="container-fluid
+                 h-5-white rounded bg-accent-unity
+                 p-3 m-3">
+                
+                <div class="container-md">
+                    
+
+                    <div class="flex-grow-1 text-center">
+
+                        <h3 class="h-3-white">О нас</h3>
+                    </div>
+
+
+                    <div class="card-group">
+
+                        <div class="card
+                             bg-accent-unity border-accent-unity
+                             h-5-white">
+                            <img class="card-img-top icon-20"
+                                 src="Images/Prikolist.png" alt="Prikolist">
+
+                            <div class="card-body">
+                                
+                                <h5 class="card-title">
+                                    <strong>
+                                        Арсений Учитель
+                                    </strong>
+                                    
+                                </h5>
+                                
+                                
+                                <p class="card-text">
+                                    Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
+                                    Обучаю детей программированию на Unity с 2023-го года. 
+                                    Написал бэкенд и серверную логику приложения.
+                                </p>
+                            </div>
+
+                            <div class="card-footer
+                                 border-accent-unity bg-accent-unity">
+
+                                  <a class="btn btn-outline"
+                                     href="https://github.com/DirectedByDebil">Профиль GitHub</a>    
+                            </div>
+                        </div>
+
+                        <div class="card
+                             bg-accent-unity border-accent-unity
+                             h-5-white">
+                          <img class="card-img-top icon-20"
+                               src="Images/Tyler.png" alt="Tyler">
+
+                          <div class="card-body">
+                              <h5 class="card-title">
+                                  
+                                  <strong>
+                                    Тайлер Дизайнер
+                                  </strong>
+                              </h5>
+
+                              <p class="card-text">
+                                    Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
+                                    Обучаю детей программированию на Unity с 2023-го года. 
+                                    Спроектировал дизайн приложения и этого сайта)
+                                </p>
+
+                          </div>
+
+                          <div class="card-footer
+                               border-accent-unity bg-accent-unity">
+
+                              <a class="btn btn-outline"
+                                 href="https://github.com/DirectedByDebil">Профиль GitHub</a>    
+                          </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
 
           
             <!--Modules-->
@@ -376,69 +454,73 @@
 
             <!--Registration-->
             <div id="registration" 
-                class="container-sm
+                class="container-fluid
                 flex-wrap
-                bg-accent-unity p-3 m-3">
+                bg-accent-unity rounded
+                p-3 m-3">
 
-                
-                <div class="flex-grow-1 text-center">
+                <div class="container-sm">
                     
-                    <h3 class="h-3-white">Начните обучение!</h3>
-                </div>
                 
-                
-                <div class="d-flex flex-row flex-wrap
-                     justify-content-around
-                     align-items-center
-                     p-3">
-                    
-                    
-                    <div class="icon-auto">
-                        
-                        <img src="Images/Frog.gif" alt="Frog">
+                    <div class="flex-grow-1 text-center">
+
+                        <h3 class="h-3-white">Начните обучение!</h3>
                     </div>
-               
-                    
-                    <form id="registrationForm"
-                          method="post" action="PHP/Registration.php"
-                          class="d-flex flex-column w-50
-                          p-3
-                          align-items-center ">
 
-                        <input class="p-2 m-2 input-accent"
-                               name="UserName" placeholder="Ваше Имя"
-                               type="text" required>
-                        
-                        <input class="p-2 m-2 input-accent"
-                               name="Email" placeholder="E-mail"
-                               type="email" required>
 
-                        <input id="Password"
-                               class="p-2 m-2 input-accent"
-                               name="Password" placeholder="Пароль"
-                               type="password" required>
-                        
-                        <input id="ConfirmPassword"
-                               class="p-2 m-2 input-accent"
-                               name ="ConfirmPassword" placeholder="Повторите пароль"
-                               type="password" required>
+                    <div class="d-flex flex-row flex-wrap
+                         justify-content-around
+                         align-items-center
+                         p-3">
 
-                        <button class="p-2 m-2
-                                flex-grow-1
-                                btn btn-white-reverse
-                                btn-lg w-100" type="Submit">
-                        Зарегистрироваться!
-                        </button>
-                    </form>
-               
-                    
-                    <div class="icon-auto">
-                        
-                        <img src="Images/VirtualGuy.gif" alt="Virtual Guy">
+
+                        <div class="">
+
+                            <img src="Images/Frog.gif" alt="Frog">
+                        </div>
+
+
+                        <form id="registrationForm"
+                              method="post" action="PHP/Registration.php"
+                              class="d-flex flex-column w-50
+                              p-3
+                              align-items-center ">
+
+                            <input class="p-2 m-2 input-accent"
+                                   name="UserName" placeholder="Ваше Имя"
+                                   type="text" required>
+
+                            <input class="p-2 m-2 input-accent"
+                                   name="Email" placeholder="E-mail"
+                                   type="email" required>
+
+                            <input id="Password"
+                                   class="p-2 m-2 input-accent"
+                                   name="Password" placeholder="Пароль"
+                                   type="password" required>
+
+                            <input id="ConfirmPassword"
+                                   class="p-2 m-2 input-accent"
+                                   name ="ConfirmPassword" placeholder="Повторите пароль"
+                                   type="password" required>
+
+                            <button class="p-2 m-2
+                                    flex-grow-1
+                                    btn btn-white-reverse
+                                    btn-lg w-100" type="Submit">
+                            Зарегистрироваться!
+                            </button>
+                        </form>
+
+
+                        <div class="">
+
+                            <img src="Images/VirtualGuy.gif" alt="Virtual Guy">
+                        </div>
+
                     </div>
-                    
+
                 </div>
-                
                 
                     
             </div>

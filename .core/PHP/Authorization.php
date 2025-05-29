@@ -18,10 +18,9 @@ FilterInput::TryGetAuthPassword($password))
     $query->bindValue(":email", $email);
     
     
-    
     if(!$query->execute())
     {
-        
+        echo "Error";
         return;
     }
         
@@ -30,12 +29,19 @@ FilterInput::TryGetAuthPassword($password))
     
     if(password_verify($password, $result['Password']))
     {
+        //Put in one json UserData, Lessons, Learning Programs
+        //and send to js
+        //
+        //Init User();
+        //Init Lessons();
+        //Init Learning Programs();
         
-        //#TODO start App
+        header("Location: ../DiplomaWebGL/index.html");
     }
     else
     {
-        header("Location: ../SignIn.html");
+        //echo "Not correct password";
+        header("Location: ../LogIn.html");
     }
     
     
