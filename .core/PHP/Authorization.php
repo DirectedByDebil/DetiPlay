@@ -24,17 +24,20 @@ FilterInput::TryGetAuthPassword($password))
         return;
     }
         
+    
     $result = $query->fetchAll()[0];
        
     
     if(password_verify($password, $result['Password']))
-    {
-        //Put in one json UserData, Lessons, Learning Programs
-        //and send to js
-        //
-        //Init User();
-        //Init Lessons();
-        //Init Learning Programs();
+    {        
+        
+        session_start();
+        
+        
+        $user = array("UserName" => $result["UserName"], "Email" => $result["Email"]);
+        
+        $_SESSION["User"] = $user;
+        
         
         header("Location: ../DiplomaWebGL/index.html");
     }

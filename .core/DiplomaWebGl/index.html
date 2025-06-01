@@ -6,6 +6,8 @@
     <title>Unity WebGL Player | PlayfulLearn</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    
+    <script src="../JS/GetFromPHP.js"></script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -89,85 +91,6 @@
 
       loadingBar.style.display = "block";
 
-      
-      function getUserJson()
-      {
-          return `{"Email": "test@mail.ru", "UserName": "Test User", "SelectedCharacter": "PinkMan", "CompletedLessons": []}`;
-      }
-      
-      
-      function getLessonsJson()
-      {
-          
-          const lesson1 = `{"NameOfLesson": "Axis X", "Theory": [{"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "Russian"}, {"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "English"}]}`;
-          
-          const lesson2 = `{"NameOfLesson": "Axis Y", "Theory": [{"Introduction": "Intro", "Usage": "Use", "PracticeDescription": "Pr", "Language": "Russian"}]}`;
-          
-          const lesson3 = `{"NameOfLesson": "Get Button Down", "Theory": [{"Language": "Russian"}]}`;
-          
-          const lesson4 = `{"NameOfLesson": "Fire", "Theory": [{"Language": "Russian"}]}`;
-          
-          
-          const lessons = [lesson1, lesson2, lesson3, lesson4];
-          
-          
-          let output = `[` + lessons[0];
-          
-          for(let i = 1; i< lessons.length; i++)
-          {
-              
-              output += ', ' + lessons[i];
-          }
-          
-          output += `]`;
-          
-          return output;
-      }
-      
-      
-      function getLearningModulesJson()
-      {
-          
-          const module1 = `{"NameOfProgram": "Input", "Lessons": ["Get Button Down", "Fire"]}`;
-          
-          const module2 = `{"NameOfProgram": "Physics", "Lessons": ["Axis X", "Axis Y"]}`;
-          
-          
-          const modules = [module1, module2];
-          
-          
-          let output = `[` + modules[0];
-          
-          for(let i = 1; i< modules.length; i++)
-          {
-              
-              output += ', ' + modules[i];
-          }
-          
-          output += `]`;
-          
-          return output;          
-      }
-      
-      
-      function getInitJson()
-      {
-          
-        const user = `"User":` + getUserJson();
-        
-        const lessons = `"Lessons":` + getLessonsJson();
-        
-        const modules = `"LearningPrograms":` + getLearningModulesJson();
-        
-        const startingModule = `"StartingModule": "Physics"`;
-        
-        const initData = `{` + user + `, ` + lessons + `, ` + modules + `, ` + startingModule + '}';
-          
-        return initData;
-      }
-      
-      
-      
 
       var myGameInstance = null;
       var script = document.createElement("script");
@@ -182,8 +105,9 @@
                
                 myGameInstance.SendMessage('InitScene', 'Init');
                 
-                console.log(Object.keys(getInitJson()).length);
-                myGameInstance.SendMessage('InitScene', 'LoadInitData', getInitJson());
+                sendRequest().then(
+                        result => myGameInstance.SendMessage('InitScene', 'LoadInitData', result),
+                        error => console.log("Error"));
                 
                 
                 loadingBar.style.display = "none";

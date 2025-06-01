@@ -21,15 +21,16 @@ class DBConnection
         }
     }
     
+    
     public function ExecuteSQL($sql) : PDOStatement
     {
         return $this->pdoConn->query($sql);
     }
+    
     
     public function Prepare($query) : PDOStatement|false
     {
         
         return $this->pdoConn->prepare($query);
     }
-    
 }
