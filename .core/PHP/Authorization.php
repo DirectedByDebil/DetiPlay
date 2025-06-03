@@ -11,7 +11,7 @@ FilterInput::TryGetAuthPassword($password))
 {
 
    
-    $db = new DBConnection("Diploma");
+    $db = new DBConnection();
     
     $query = $db->Prepare("select UserName, Salt, Password, Email from users where Email = :email;");
     
@@ -37,7 +37,6 @@ FilterInput::TryGetAuthPassword($password))
         $user = array("UserName" => $result["UserName"], "Email" => $result["Email"]);
         
         $_SESSION["User"] = $user;
-        
         
         header("Location: ../DiplomaWebGL/index.html");
     }

@@ -1,18 +1,31 @@
 <?php
 
+
+require_once 'Initialization.php';
+
+
 class DBConnection
 {
-    private string $servername = "localhost", $username = "root",
-        $password = "windowsActivation0110";
 
     private PDO $pdoConn;
 
 
-    public function __construct($dbname)
+    public function __construct()
     {
-        $string = "mysql:host=$this->servername;dbname=$dbname";
         
-        $this->pdoConn = new PDO($string, $this->username, $this->password);
+        Initialization::TryLoadEnv();
+        
+        
+        $host = getenv("DB_HOST");
+        $dbName = getenv("DB_NAME");
+        $user = getenv("DB_USER");
+        $password = getenv("DB_PASSWORD");
+        
+        
+        $string = "mysql:host=$host;dbname=$dbName";
+        
+        
+        $this->pdoConn = new PDO($string, $user, $password);
 
         if($this->pdoConn->errorCode() != null)
         {
@@ -32,5 +45,17 @@ class DBConnection
     {
         
         return $this->pdoConn->prepare($query);
+    }
+    
+    
+    public function Check(): array
+    {
+
+        $host = getenv("DB_HOST");
+        $db = getenv("DB_NAME");
+        $user = getenv("DB_USER");
+        $pass = getenv("DB_PASSWORD");
+        
+        return array($host, $db, $user, $pass);
     }
 }

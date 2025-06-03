@@ -12,7 +12,7 @@ FilterInput::TryGetPassword($password) &&
 FilterInput::TryGetSalt($salt))
 {
     
-    $db = new DBConnection("Diploma");
+    $db = new DBConnection();
     
     $query = $db->Prepare("insert into users (UserName, Email, Password, Salt) values(:userName, :email, :password, :salt);");
     

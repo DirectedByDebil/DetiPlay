@@ -11,7 +11,7 @@ class UnityDBLoader {
     public function __construct()
     {
         
-        $this->con = new DBConnection("Diploma");
+        $this->con = new DBConnection();
     }
     
     
