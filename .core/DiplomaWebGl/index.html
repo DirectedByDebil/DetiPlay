@@ -106,7 +106,11 @@
                 myGameInstance.SendMessage('InitScene', 'Init');
                 
                 sendRequest().then(
-                        result => myGameInstance.SendMessage('InitScene', 'LoadInitData', result),
+
+                        result => {
+                        myGameInstance.SendMessage('InitScene', 'LoadInitData', result);
+                        console.log(result);
+                        },
                         error => console.log("Error"));
                 
                 

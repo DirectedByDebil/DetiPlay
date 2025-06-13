@@ -12,6 +12,7 @@
         
         <script src="JS/bootstrap.min.js"></script>
         <script src="JS/InputChecks.js"></script>
+        <script src="JS/LoginCheck.js"></script>
     </head>
     
     <body>
@@ -60,7 +61,22 @@
                  flex-grow-1
                  justify-content-end">
 
-                <a href="LogIn.html"
+                <div id="authorized" class="d-flex
+                     justify-content-center
+                     align-items-center">
+
+                    
+                    <label id="userName" class="h-5-white"> </label>
+
+                    <button id="signOut"
+                            class="btn btn-outline btn-lg">
+                        Выйти
+                    </button>
+                    
+                </div>
+                
+                <a id="logIn"
+                   href="LogIn.html"
                    class="btn btn-outline btn-lg"
                    role="button">Вход</a>
             </div>
@@ -365,6 +381,15 @@
                               <li>Определять положение мыши</li>
                           </ul>
                          
+                          
+                          <form method="post" action="PHP/StartModule.php">
+                              
+                              <input hidden name="ModuleName" value="Input">
+                          
+                              <button type="submit" class="btn btn-lg btn-accent">
+                                Перейти к модулю
+                            </button>
+                          </form>
                             
                         </div>
                           
@@ -406,6 +431,16 @@
                               <li>Определять направление движения в unity</li>
                               <li>Создавать движение персонажа</li>
                           </ul>
+                          
+                          
+                          <form method="post" action="PHP/StartModule.php">
+                              
+                              <input hidden name="ModuleName" value="Physics">
+                          
+                              <button type="submit" class="btn btn-lg btn-accent">
+                                Перейти к модулю
+                            </button>
+                          </form>
                             
                             
                         </div>
@@ -441,6 +476,15 @@
                               <li>Научится отслеживать нажатие клавиш мыши</li>
                               <li>Научится определять положение мыши</li>
                           </ul>
+                          
+                          <form method="post" action="PHP/StartModule.php">
+                              
+                              <input hidden name="ModuleName" value="Animations">
+                          
+                              <button type="submit" class="btn btn-lg btn-accent">
+                                Перейти к модулю
+                              </button>
+                          </form>
 
                           </div>
                         </div>

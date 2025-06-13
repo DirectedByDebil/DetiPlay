@@ -70,4 +70,13 @@ class FilterInput
         
         return !empty($password);
     }
+    
+    
+    public static function TryGetModule(&$moduleName): bool
+    {
+        $moduleName = filter_input(INPUT_POST, "ModuleName", FILTER_SANITIZE_SPECIAL_CHARS);
+        
+        return !empty($moduleName);
+    }
+    
 }

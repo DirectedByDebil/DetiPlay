@@ -10,7 +10,6 @@ if (FilterInput::TryGetEmail($email) &&
 FilterInput::TryGetAuthPassword($password))
 {
 
-   
     $db = new DBConnection();
     
     $query = $db->Prepare("select UserName, Salt, Password, Email from users where Email = :email;");

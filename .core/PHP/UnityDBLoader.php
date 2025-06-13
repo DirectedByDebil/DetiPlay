@@ -111,6 +111,13 @@ class UnityDBLoader {
     
     public function GetStartingModule(): string
     {
-        return "Physics";
+        
+        if(isset($_SESSION["StartingModule"]))
+        {
+            
+            return $_SESSION["StartingModule"];
+        }
+        
+        return "Input";
     }
 }

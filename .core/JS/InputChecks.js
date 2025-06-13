@@ -1,21 +1,11 @@
 
-window.onload = OnWindowLoad;
+
+addEventListener("load", OnWindowLoad);
 
 
 function OnWindowLoad()
 {
-    /*
-    fetch("../PHP/logic.php").
-            then(function (response)
-    {
-        response.text().then(function (text){
-        
-            console.log(text);
-        });
-    });
-        */
-    
-    
+
     const form = document.getElementById("registrationForm");
 
     const password = form.querySelector("#Password");
