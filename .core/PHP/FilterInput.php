@@ -15,7 +15,7 @@ class FilterInput
     public static function TryGetSalt(&$salt): bool
     {
         $salt = filter_input(INPUT_POST, "Salt", FILTER_SANITIZE_SPECIAL_CHARS);
-        
+        $salt = 228;
         return !empty($salt);
     }
     

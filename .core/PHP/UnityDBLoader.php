@@ -15,6 +15,68 @@ class UnityDBLoader {
     }
     
     
+    public function GetUserAuth($email, &$auth): bool
+    {
+        
+        $query = $this->con->Prepare("select UserName, Salt, Password, Email from users where Email = :email;");
+
+        $query->bindValue(":email", $email);
+
+
+        if(!$query->execute())
+        {
+            echo "Error";
+            
+            return false;
+        }
+
+
+        $auth = $query->fetchAll()[0];
+        
+        return true;
+    }
+
+    
+    public function SetUser($result): array
+    {
+        
+        $email = $result["Email"];
+        
+        $query = $this->con->Prepare("select l.name
+            from usersProgress
+                join lessons as l on l.id = LessonId
+                join users as u on u.id = UserId
+            where u.email = :email");
+        
+        $query->bindValue(":email", $email);
+        
+        
+        if(!$query->execute())
+        {
+            return false;
+        }
+        
+        $rows = $query->fetchAll();
+        
+        
+        $completedLessons = array();
+        
+        foreach ($rows as $row)
+        {
+            
+            $completedLessons[] = $row["name"];
+        }
+        
+        
+        $user = array("UserName" => $result["UserName"],
+            "Email" => $result["Email"],
+            "CompletedLessons" => $completedLessons);
+        
+        return $user;
+    }
+
+
+
     public function GetLessons(): array
     {
         

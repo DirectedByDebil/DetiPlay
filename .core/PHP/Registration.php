@@ -1,6 +1,7 @@
 <?php
 
 require_once 'FilterInput.php';
+require_once 'UnityDBLoader.php';
 require_once 'DBConnection.php';
 
 ob_start();
@@ -18,7 +19,7 @@ FilterInput::TryGetSalt($salt))
     
     $query->bindValue(":userName", $userName);
     $query->bindValue(":email", $email);
-    $query->bindValue(":email", $salt);
+    $query->bindValue(":salt", $salt);
     
     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
     $query->bindValue(":password", $hashedPass);
@@ -27,13 +28,24 @@ FilterInput::TryGetSalt($salt))
     
     if($query->execute())
     {
-        //#TODO start app
+        
+        session_start();
+        
+        $loader = new UnityDBLoader();
+        
+        
+        $user = $loader->SetUser($result);
+
+        $_SESSION["User"] = $user;
+        
+        
+        header("Location: ../DiplomaWebGL/index.html");
     }
     
 }
 else
 {
- 
+
     echo "No";
 }
 
