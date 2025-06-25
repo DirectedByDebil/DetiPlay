@@ -13,58 +13,70 @@
     
     <body>
         
+        
         <div class="container-fluid
-             d-flex flex-row
-             justify-content-start
+             row row-cols-1 row-cols-md-1 row-cols-lg-2
              align-items-stretch"
-             style="height:100vh; width: 100vw;">
-            
-            <!--Form-->
-            <div class="d-flex w-50
-                 flex-column
-                 justify-content-center
-                 align-items-center
-                 bg-light"> 
+             style="height:100vh;">
             
                 
-                <div>
-                    
-                    <div class="h-3-black">Вход в аккаунт</div>
-                    
-                    
-                    <form method="post" action="PHP/Authorization.php"
-                          class="d-flex flex-column
-                          justify-content-center
-                          align-items-center">
+            <!-- Form -->
+            <div class="col d-flex">
 
-                          <input class="p-2 m-2 input-accent-outline"
-                                 name="Email" placeholder="E-mail" type="email">
-
-                          <input class="p-2 m-2 input-accent-outline"
-                                 name="Password" placeholder="Пароль" type="password">
-
-                          <button class="p-2 m-2
-                                  flex-grow-1 w-100
-                                  btn btn-accent btn-lg"
-                                  type="Submit">
-                          Войти!
-                          </button> 
-                    
-                    </form>
                 
-                </div>   
-            </div>
-            
-            
-            <!--Right-->
-            <div class="d-flex flex-grow-1
-                 justify-content-center
-                 align-items-center
-                 bg-accent-unity">
-                
-                <img src="Images/Frog.gif" alt="Frog">
+                <div class="container-sm
+                     d-flex flex-column
+                     justify-content-center
+                     align-items-center">
+                    
+                    <div>
+
+                        <div class="h-3-black text-center">Вход в аккаунт</div>
+
+
+                        <form method="post" action="PHP/Authorization.php"
+                              class="d-flex flex-column
+                              justify-content-center
+                              align-items-center">
+
+                              <input class="p-2 m-2 input-accent-outline"
+                                     name="Email" placeholder="E-mail" type="email">
+
+                              <input class="p-2 m-2 input-accent-outline"
+                                     name="Password" placeholder="Пароль" type="password">
+
+                              <button class="p-2 m-2
+                                      flex-grow-1 w-100
+                                      btn btn-accent btn-lg"
+                                      type="Submit">
+                              Войти!
+                              </button> 
+
+                        </form>
+                        
+                    </div>
+                    
+                </div>
                 
             </div>
+
+            
+            <!-- Icon -->
+            <div class="col bg-accent-unity
+                 d-none d-md-flex">
+
+                <div class="container-sm
+                     d-flex
+                     justify-content-center
+                     align-items-center">
+
+                    <img src="Images/Frog.gif" alt="Frog">
+
+                </div>
+
+ 
+            </div>
+
             
         </div>
         

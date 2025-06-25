@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Обучение детей на платформе Unity</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/bootstrap.min.css">
@@ -16,71 +16,74 @@
     </head>
     
     <body>
-        
+       
        
         <!--Header-->
         <div class="container-fluid
-             d-flex p-4 bg-accent-unity
-             justify-content-around
-             align-items-center">
-            
-            
-            <div class="flex-grow-1">  </div>            
+             p-4 bg-accent-unity">
 
-
-            <div class="flex-grow-1 d-flex
-                 justify-content-center">
-
-                <a href="#about_app"
-                   class ="btn btn-header btn-lg
-                   flex-fill" role="button">
-
-                    О приложении
-                </a>
-
-
-                <a href="#about_us"
-                   class="btn btn-header btn-lg
-                   flex-fill" role="button">
-
-                    О нас
-                </a>
-
-
-                <a href="#modules"
-                   class="btn btn-header btn-lg
-                   flex-fill" role="button">
-
-                    Учебные модули   
-                </a>
-
-            </div>
-
-
-            <div class="d-flex pe-3
-                 flex-grow-1
-                 justify-content-end">
-
-                <div id="authorized" class="d-flex
-                     justify-content-center
+           
+            <div class="container">
+                           
+                <div class="row row-cols-1 row-cols-lg-6 g-0
+                     d-none d-lg-flex
+                     justify-content-around
                      align-items-center">
 
-                    
-                    <label id="userName" class="h-5-white"> </label>
+                    <a href="#about_app"
+                       class ="btn btn-header btn-lg
+                       col"
+                       role="button">
 
-                    <button id="signOut"
-                            class="btn btn-outline btn-lg">
-                        Выйти
-                    </button>
-                    
+                        О приложении
+                    </a>
+
+
+                    <a href="#about_us"
+                       class="btn btn-header btn-lg
+                       col" 
+                       role="button">
+
+                        О нас
+                    </a>
+
+
+                    <a href="#modules"
+                       class="btn btn-header btn-lg
+                       col" 
+                       role="button">
+
+                        Учебные модули   
+                    </a>
+
+
+                    <div id="authorized" class="d-flex flex-row col col-md-3
+                         justify-content-center
+                         align-items-center">
+
+
+                        <label id="userName" class="h-5-white"> </label>
+
+                        <button id="signOut"
+                                class="btn btn-outline btn-lg">
+                            Выйти
+                        </button>
+
+                        
+                        <a id="logIn"
+                           href="LogIn.html"
+                           class="btn btn-outline btn-lg 
+                           col"
+                           role="button">
+                            
+                            Вход
+                        </a>
+                        
+                    </div>
+
                 </div>
                 
-                <a id="logIn"
-                   href="LogIn.html"
-                   class="btn btn-outline btn-lg"
-                   role="button">Вход</a>
             </div>
-            
         </div>
         
         
@@ -93,7 +96,7 @@
              style="height: 650px;">
 
                 
-            <div class="container-sm
+            <div class="container
                  d-flex flex-row flex-shrink-1 flex-nowrap
                  justify-content-between"
                  style="height: 70%">
@@ -119,7 +122,7 @@
                 </div>
 
 
-                <div class="d-flex w-50
+                <div class="w-50 d-none d-lg-flex
                      justify-content-center">
 
                     <img src="Images/Frog.gif" alt="Frog">
@@ -130,30 +133,30 @@
             
         
 
+        <!--About App-->
         <div class="container-fluid
          d-flex flex-column
          align-items-center">
         
             
-            <!--About App-->
             <div id="about_app"
-                 class="container-sm
-                 flex-wrap
-                 align-items-center
+                 class="container
                  d-flex flex-column
+                 align-items-center
                  p-3 m-3">
                 
                 <h3 class="h-3-black">О приложении</h3>
            
                 
                 <!--Table Of Features-->
-                <div class="container-sm p-3">
+                <div class="container p-3">
                     
-                    <div class="row p-2">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3
+                         p-2">
                         
                         <div class="col d-flex flex-column">
                             
-                            <img src="Images/Pinkman.gif"
+                            <img src="Images/PinkMan.gif"
                                  class="icon-20"
                                  alt="pinkman">
 
@@ -175,7 +178,7 @@
                         
                         <div class="col d-flex flex-column">
                             
-                            <img src="Images/Pinkman.gif"
+                            <img src="Images/PinkMan.gif"
                                  class="icon-20"
                                  alt="pinkman">
 
@@ -183,10 +186,6 @@
                                 Хорошее начало для обучения программированию на Unity!</span>
 
                         </div>
-                        
-                    </div>
-
-                    <div class="row p-2">
                         
                         <div class="col d-flex flex-column">
                             
@@ -201,7 +200,7 @@
                         
                         <div class="col d-flex flex-column">
                             
-                            <img src="Images/Pinkman.gif"
+                            <img src="Images/PinkMan.gif"
                                  class="icon-20"
                                  alt="pinkman">
 
@@ -225,118 +224,130 @@
                     
                 </div>
                
-       
-                <div class="container-sm
-                     d-flex flex-row
-                     p-3 m-3
-                     justify-content-center
-                     align-items-center">
-                                        
-                    <img src="Images/MaskDude.gif" alt="Mask Dude">
+
+                <div class="row d-none d-md-block">
+
+                    <div class="col-md">
+
+                        <img src="Images/MaskDude.gif" alt="Mask Dude">
 
 
-                    <a href="#registration"
-                        class="p-3 m-3
-                        btn btn-accent btn-lg">Выбрать персонажа!
-                    </a>
+                        <a href="#registration"
+                            class="p-3 m-3
+                            btn btn-accent btn-lg">Выбрать персонажа!
+                        </a>
+
+                    </div>
+
                 </div>
-                
  
             </div>
 
+        </div> 
+        
+        
+        <!--About Us-->
+        <div class="container-fluid
+            d-flex flex-column
+            align-items-center
+            bg-accent-unity">            
 
-            <!--About Us-->
+        
             <div id="about_us"
-                 class="container-fluid
-                 h-5-white rounded bg-accent-unity
+                 class="container
+                 h-5-white rounded
                  p-3 m-3">
                 
-                <div class="container-md">
                     
+                <div class="flex-grow-1 text-center">
 
-                    <div class="flex-grow-1 text-center">
+                    <h3 class="h-3-white">О нас</h3>
+                </div>
+               
 
-                        <h3 class="h-3-white">О нас</h3>
-                    </div>
+                <div class="card-group
+                     row row-cols-1 row-cols-md-2 row-cols-lg-2">
+
+                    <div class="card col
+                         bg-accent-unity border-accent-unity
+                         h-5-white">
+                        <img class="card-img-top icon-20"
+                             src="Images/Prikolist.png" alt="Prikolist">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                <strong>
+                                    Арсений Учитель
+                                </strong>
+
+                            </h5>
 
 
-                    <div class="card-group">
-
-                        <div class="card
-                             bg-accent-unity border-accent-unity
-                             h-5-white">
-                            <img class="card-img-top icon-20"
-                                 src="Images/Prikolist.png" alt="Prikolist">
-
-                            <div class="card-body">
-                                
-                                <h5 class="card-title">
-                                    <strong>
-                                        Арсений Учитель
-                                    </strong>
-                                    
-                                </h5>
-                                
-                                
-                                <p class="card-text">
-                                    Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
-                                    Обучаю детей программированию на Unity с 2023-го года. 
-                                    Написал бэкенд и серверную логику приложения.
-                                </p>
-                            </div>
-
-                            <div class="card-footer
-                                 border-accent-unity bg-accent-unity">
-
-                                  <a class="btn btn-outline"
-                                     href="https://github.com/DirectedByDebil">Профиль GitHub</a>    
-                            </div>
+                            <p class="card-text">
+                                Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
+                                Обучаю детей программированию на Unity с 2023-го года. 
+                                Написал бэкенд и серверную логику приложения.
+                            </p>
                         </div>
 
-                        <div class="card
-                             bg-accent-unity border-accent-unity
-                             h-5-white">
-                          <img class="card-img-top icon-20"
-                               src="Images/Tyler.png" alt="Tyler">
-
-                          <div class="card-body">
-                              <h5 class="card-title">
-                                  
-                                  <strong>
-                                    Тайлер Дизайнер
-                                  </strong>
-                              </h5>
-
-                              <p class="card-text">
-                                    Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
-                                    Обучаю детей программированию на Unity с 2023-го года. 
-                                    Спроектировал дизайн приложения и этого сайта)
-                                </p>
-
-                          </div>
-
-                          <div class="card-footer
-                               border-accent-unity bg-accent-unity">
+                        <div class="card-footer
+                             border-accent-unity bg-accent-unity">
 
                               <a class="btn btn-outline"
                                  href="https://github.com/DirectedByDebil">Профиль GitHub</a>    
-                          </div>
-
                         </div>
+                    </div>
+
+                    <div class="card col
+                         bg-accent-unity border-accent-unity
+                         h-5-white">
+                      <img class="card-img-top icon-20"
+                           src="Images/Tyler.png" alt="Tyler">
+
+                      <div class="card-body">
+                          <h5 class="card-title">
+
+                              <strong>
+                                Тайлер Дизайнер
+                              </strong>
+                          </h5>
+
+                          <p class="card-text">
+                                Закончил Волгоградский Государственный университет по направлению "Программная инженерия".
+                                Обучаю детей программированию на Unity с 2023-го года. 
+                                Спроектировал дизайн приложения и этого сайта)
+                            </p>
+
+                      </div>
+
+                      <div class="card-footer
+                           border-accent-unity bg-accent-unity">
+
+                          <a class="btn btn-outline"
+                             href="https://github.com/DirectedByDebil">Профиль GitHub</a>    
+                      </div>
 
                     </div>
 
                 </div>
+                
             </div>
-
-          
-            <!--Modules-->
+        
+        </div>
+        
+        
+        <!--Modules-->
+        <div class="container-fluid
+             d-flex flex-column
+             align-items-center">
+                    
             <div id="modules"
-                 class="container-md
+                 class="container
                  p-3 m-3">
                 
                 
-                <div class="d-flex justify-content-center">
+                <div class="text-center">
                     
                     <h3 class="h-3-black">Учебные модули</h3>
                 </div>
@@ -493,11 +504,17 @@
                 
             </div>
 
-              
+        </div>
 
-            <!--Registration-->
+        
+        <!--Registration-->
+        <div class="container-fluid
+             d-flex flex-column
+             align-items-center
+             bg-accent-unity">
+            
             <div id="registration" 
-                class="container-fluid
+                class="container
                 flex-wrap
                 bg-accent-unity rounded
                 p-3 m-3">
@@ -505,19 +522,17 @@
                 <div class="container-sm">
                     
                 
-                    <div class="flex-grow-1 text-center">
+                    <div class="text-center">
 
                         <h3 class="h-3-white">Начните обучение!</h3>
                     </div>
 
 
-                    <div class="d-flex flex-row flex-wrap
-                         justify-content-around
-                         align-items-center
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-center
                          p-3">
 
 
-                        <div class="">
+                        <div class="col d-none d-md-block">
 
                             <img src="Images/Frog.gif" alt="Frog">
                         </div>
@@ -525,7 +540,7 @@
 
                         <form id="registrationForm"
                               method="post" action="PHP/Registration.php"
-                              class="d-flex flex-column w-50
+                              class="d-flex flex-column col
                               p-3
                               align-items-center ">
 
@@ -556,7 +571,7 @@
                         </form>
 
 
-                        <div class="">
+                        <div class="col d-none d-lg-block">
 
                             <img src="Images/VirtualGuy.gif" alt="Virtual Guy">
                         </div>
@@ -567,7 +582,9 @@
                 
                     
             </div>
+        
         </div>
+      
         
     </body>
     

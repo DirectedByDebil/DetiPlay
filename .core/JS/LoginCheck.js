@@ -78,7 +78,7 @@ function onAuthorized(result)
 function onSignedOut(error)
 {
     
-    logIn.style.display = 'flex';
+    logIn.style.display = 'inline';
     
     userName.style.display = 'none';
 
